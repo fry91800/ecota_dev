@@ -5,7 +5,6 @@ const datastruct = require("../utils/datastruct.js");
 const { logger, logEnter, logExit } = require('../config/logger');
 
 async function getMostRecentCampaign() {
-
     return campaignRepository.getMostRecentCampaign();
 }
 
@@ -13,7 +12,7 @@ async function startCampaign() {
         logger.info("Création d'une campagne...");
         // Step 1: Vérification de l'existence d'une campagne pour l'année courante
         const currentYear = new Date().getFullYear();
-        const mostRecentCampaign = await campaignService.getMostRecentCampaign();
+        const mostRecentCampaign = await getMostRecentCampaign();
         // Step 2: Création de la campagne si non existante
         if (mostRecentCampaign && mostRecentCampaign.year === currentYear) {
             logger.info("\x1b[32mCampagne déjà existante\x1b[0m");

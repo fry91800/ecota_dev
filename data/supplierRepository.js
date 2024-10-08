@@ -30,7 +30,7 @@ async function syncSupplierSnapShot(suppliers) {
         for (const supplier of suppliers) {
             // Tentative d'ajout du supplier
             try {
-                await commonRepository.insert("YearlySupplierSnapShot", supplier);
+                await commonRepository.insertOne("YearlySupplierSnapShot", supplier);
             }
             // Si erreur, la clé est possiblement déjà présente, tentative de changement de nom
             catch (e) {
@@ -46,11 +46,13 @@ async function syncSupplierSnapShot(suppliers) {
     }
 }
 async function syncTeamData(teamData) {
+    for(const data of teamData) {
     try {
-        await commonRepository.insertMany("YearlyTeamCotaData", teamData);
+        await commonRepository.insertOne("YearlyTeamCotaData", data);
     } catch (error) {
-
+        console.log(error)
     }
+}
 }
 async function updatePerfoValues(year, perfo) {
     const update = { "Value(EUR)": perfo["Value(EUR)"] }
