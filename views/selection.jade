@@ -1,0 +1,9 @@
+extends layout
+block content
+    script(src="#{baseUrl}/javascripts/selection.js")
+    include bars/mainBar.jade
+    include bars/secondBar.jade
+    if (session && session.role == "admin")
+        include selection/adminSelection.jade
+    include selection/checkPopup.jade
+    include selection/selectionTable.jade

@@ -1,0 +1,17 @@
+#second-bar
+    #second-bar-left-side
+        if session && (session.role === "admin" || session.role === "manager")
+            .second-bar-item.right-border
+                a(href="#{baseUrl}/#{lang}/selection")
+                        #selection-link.second-bar-text #{__("selection")}
+
+        if session
+            #scoring-tab.second-bar-item.right-border
+                #cota-badge 2
+                a(href="#{baseUrl}/#{lang}/cota/list/#{session.orgaid}")
+                    #scoring-link.second-bar-text #{__("scoring")}
+    #second-bar-right-side
+        if session && (session.role === "admin" || session.role === "manager")
+            .second-bar-item.left-border
+                a(href="#{baseUrl}/#{lang}/stats")
+                    #stats-link.second-bar-text #{__("stats")}

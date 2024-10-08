@@ -1,0 +1,1376 @@
+* {
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+}
+
+body {
+  font: 20px "Lucida Grande", Helvetica, Arial, sans-serif;
+  margin: 0;
+  transition: 0.3s;
+}
+
+body.dark {
+  background-color: #070e1d;
+  color: rgb(255, 255, 255);
+}
+
+body h1 {
+  text-align: center;
+
+}
+input{
+  transition: 0.3s;
+}
+.not-visible {
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.visible {
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 0.5s ease-in-out;
+  /* Matches the same timing for fade-out */
+}
+
+.message {
+  padding: 5px;
+  font-size: 14px;
+  border-radius: 2px;
+  text-align: center;
+  font-weight: bold;
+  background-color: rgb(207, 207, 207);
+  border: 1px solid black;
+  color: black;
+}
+
+.error {
+  background-color: rgb(255, 178, 178);
+  border: 1px solid red;
+  color: red;
+}
+
+.success {
+  background-color: rgb(143, 255, 143);
+  border: 1px solid green;
+  color: green;
+}
+
+.shadow {
+  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.274);
+  transition: 0.3s;
+}
+body.dark .shadow {
+  box-shadow: 4px 4px 8px #afcff01c;
+}
+
+
+
+/*Overlays*/
+.overlay {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.7);
+  transition: 500ms;
+  visibility: hidden;
+  opacity: 0;
+  display: flex;
+  justify-content: center;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.overlay.active {
+  pointer-events: all;
+  visibility: visible;
+  opacity: 1;
+}
+
+/* Popup */
+.popup {
+  margin-top: 25px;
+  background-color: #e7e7e7;
+  height: fit-content;
+  width: fit-content;
+  max-width: 100%;
+  max-height: 450px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  border-radius: 5px;
+  padding: 5px;
+  transition: 0.3s;
+}
+
+body.dark .popup{
+  background-color: #2a3959;
+  /*color: white;*/
+}
+
+.popup-bar {
+  height: fit-content;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
+.popup-title {
+  font-size: 25px;
+  font-weight: bold;
+  text-align: center;
+  padding: 0px 22px
+}
+
+.popup-close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-size: 20px;
+  height: fit-content;
+  width: fit-content;
+  cursor: pointer;
+}
+
+/* Bars */
+
+#main-bar {
+  background-color: #070e1d;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  font-size: 35px;
+  justify-content: end;
+  position: relative;
+}
+
+#app-title {
+  top: 0;
+  color: white;
+  font-size: 25px;
+  font-weight: bold;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  margin: 0;
+}
+
+.main-bar-group {
+  margin: 0px 4px;
+  display: flex;
+}
+
+.main-bar-item {
+  display: flex;
+  align-items: center;
+  margin: 0px 2px;
+  font-weight: bold;
+}
+.main-bar-item a{
+  transition: 0.2s;
+}
+
+
+#main-bar img {
+  border: 1.4px solid transparent;
+  border-radius: 2px;
+  transition: 0.2s;
+}
+
+#main-bar img.active {
+  border: 1.4px solid #afd0f0
+}
+
+#main-bar img:hover {
+  border: 1.4px solid #afd0f0
+}
+
+#main-bar a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  text-decoration: none;
+  color: #afd0f0;
+}
+
+.theme-switch {
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+  text-decoration: none;
+  color: #4d6275;
+}
+
+.theme-switch.active {
+  color: #afd0f0
+}
+
+#main-bar a:hover {
+  color: #829fbd
+}
+
+
+
+.right-items {
+  display: flex;
+}
+
+#second-bar {
+  background: linear-gradient(90deg, rgba(177, 120, 0, 1) 0%, rgba(235, 175, 54, 1) 100%);
+  height: 30px;
+  border-bottom: 1px solid black;
+  display: flex;
+  box-shadow: 0 3px 6px 0 rgba(32, 33, 36, 0.28);
+  transition: 0.3s;
+}
+body.dark #second-bar{
+  border-bottom: 1px solid #839ebb;
+  box-shadow: 0 3px 15px 0 #afcff06e;
+}
+
+#second-bar-left-side {
+  height: 100%;
+  width: 50%;
+  display: flex;
+  justify-content: left;
+}
+
+#second-bar-right-side {
+  height: 100%;
+  width: 50%;
+  display: flex;
+  justify-content: end;
+}
+
+.second-bar-item {
+  display: flex;
+  align-items: center;
+  transition: 0.2s;
+}
+
+.second-bar-item:hover{
+  background-color: #00000028;
+}
+
+.second-bar-item a {
+  text-decoration: none;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.second-bar-text {
+  width: fit-content;
+  font-size: 20px;
+  font-family: Arial, Helvetica, sans-serif;
+  cursor: pointer;
+  background-color: transparent;
+  font-weight: bold;
+  padding-left: 12px;
+  padding-right: 12px;
+}
+
+.second-bar-text {
+  margin: 0;
+  color: rgb(0, 0, 0, 0.7)
+}
+
+#scoring-tab {
+  position: relative;
+}
+
+#cota-badge {
+  font-size: 11px;
+  top: 1px;
+  left: 1px;
+  position: absolute;
+  height: fit-content;
+  width: fit-content;
+  min-width: 13px;
+  background-color: red;
+  font-weight: bold;
+  color: white;
+  text-align: center;
+  border-radius: 10px;
+  padding: 1px
+}
+
+.second-bar-item.right-border {
+  border-right: 1px solid black
+}
+
+.second-bar-item.left-border {
+  border-left: 1px solid black
+}
+
+/* Log in */
+
+#log-in-zone, #pass-reset-zone, #spend-zone{
+  margin-top: 50px;
+}
+#recovery-popup-body-wrapper,
+#signup-popup-body-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+#recovery-popup-body,
+#signup-popup-body {
+  height: fit-content;
+  width: fit-content;
+  padding: 10px;
+}
+
+.form-text {
+  max-width: 250px;
+  word-wrap: break-word;
+  font-size: 14px;
+}
+
+.form-zone {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+#log-in-form, #pass-reset-form, #spend-form{
+  background-color: rgb(223, 223, 223);
+  transition: 0.3s;
+}
+body.dark #log-in-form, body.dark #pass-reset-form, body.dark #spend-form {
+  background-color: #2a3959
+}
+.form-header {
+  text-align: center;
+  font-weight: bold;
+}
+
+.form-flex-wrapper{
+  display: flex;
+  justify-content: center;
+}
+.form {
+  border-radius: 2px;
+  padding: 10px;
+  width: fit-content;
+}
+
+.form-item {
+  width: fit-content;
+  padding: 10px 5px;
+}
+
+
+.form-item input {
+  width: 200px;
+  height: 25px;
+  border: none;
+  border-radius: 2px;
+}
+
+body.dark input {
+  background-color: rgb(52 73 117);
+  color: white;
+  /*color: white*/
+}
+
+body.dark input::placeholder {
+  color: rgb(160, 160, 160);
+}
+
+.link {
+  font-size: 12px;
+  padding-top: 2px;
+  color: #0080ff;
+  cursor: pointer;
+  width: fit-content;
+}
+
+.link:hover {
+  text-decoration: underline;
+}
+
+.submit {
+  padding-top: 5px;
+  display: flex;
+  justify-content: center;
+}
+
+.submit-button {
+  background-color: #0080ff;
+  padding: 5px 20px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 2px;
+}
+
+#log-in-submit-button:hover {
+  background-color: #0068cf;
+}
+#sign-up-zone{
+  display: flex;
+  justify-content: center;
+}
+#log-in-sign-up {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+#log-in-pass-item{
+  position: relative;
+}
+
+#log-in-eye{
+  position: absolute;
+  bottom: 30px;
+  left: 185px;
+  font-size: 15px;
+  cursor:pointer; 
+}
+
+
+/* Preselection */
+
+#adminZone {
+  margin-top: 50px;
+  width: 100%;
+  height: 220px;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 50px;
+}
+
+#spend-input{
+  margin-bottom: 10px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+#spend-input input{
+width: 40px;
+}
+
+#percentage-sign{
+  font-size: 15px;
+  position: relative;
+  top: 5px;
+  right: 16px;
+}
+
+
+
+/* Selection */
+
+
+
+#adminPanel {
+  width: 140px;
+  height: 100%;
+  background-color: #ececec;
+  box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.15);
+  border-radius: 1px;
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  text-align: left;
+  border: 1px solid black;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+#adminPanel .item {
+  display: flex;
+  align-items: left;
+  justify-content: left;
+  flex-direction: column;
+  text-align: left;
+  margin-left: 5px;
+}
+
+#adminPanel h2 {
+  font-weight: bold;
+  width: 100%;
+  font-size: 12px;
+}
+
+#adminPanel p {
+  width: 100%;
+  font-size: 10px;
+  margin-top: 3px;
+  margin-bottom: 3px;
+}
+
+#adminPanel h1 {
+  font-weight: bold;
+  height: 10%;
+  font-size: 20px;
+  text-align: center;
+  background-color: #c4c4c4;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  margin-bottom: 12px;
+  border-bottom: 1px solid black;
+}
+
+#revenuePanel {
+  height: 45%;
+  width: 100%;
+}
+
+/*#revenue-input{
+  width: 80px !important;
+  text-align: left!important;
+  height: 15px!important;
+  border: 1px solid black!important;
+}*/
+
+#intensity-input {
+  width: 85px !important;
+  height: 19px !important;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+
+
+#intensityPanel {
+  height: 45%;
+  width: 100%;
+}
+
+
+
+/* Selection table */
+
+.table2{
+  font: 16px "Lucida Grande", Helvetica, Arial, sans-serif;
+  border-collapse: collapse;
+  width: 99%;
+  table-layout: fixed;
+  box-shadow: 0px -4px 15px rgba(0, 0, 0, 0.5);
+  border: 1px solid #000000;
+  margin: 50px auto;
+}
+
+body.dark .table2{
+  box-shadow: 0px -4px 15px #afcff01c
+}
+.table2 thead{
+  background-color: rgb(223, 223, 223);
+  transition: 0.3s;
+}
+body.dark .table2 thead {
+  background-color: #2a3959
+}
+.table2 th{
+  padding: 0px;
+}
+.table2 td{
+  height: 50px;
+  font-size: 12px;
+  font-weight: bold;
+  text-align: center;
+}
+.table2 td.new-name{
+  color: rgb(68, 141, 252);
+}
+.table2 tr.new{
+  background-color: rgb(93 249 93 / 66%);
+}
+.header2 {
+  height:70px;
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: bolder;
+}
+
+.header2-order {
+  height: 100%;
+  width: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.header2-text {
+  height: 100%;
+  width: fit-content;
+  text-align: center; /* Optional: centers the text inside */
+  display: flex;
+  align-items: center;
+}
+
+.filters2{
+  height: 20px;
+  padding-bottom: 5px;
+}
+.filters2-input{
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.filters2-input .search-button{
+  height: 100%;
+  width: 20px;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: grey;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+body.dark .search-button{
+    background-color: rgb(52 73 117);
+    color: white;
+}
+
+.filters2-input input{
+  height: 100%;
+  width: 65px;
+  padding: 0px;
+  border: none;
+}
+.filters2-input input:focus{
+  outline: none;
+}
+.filters2-input .delete-button{
+  height: 100%;
+  width: 20px;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: grey;
+  font-size: 14px;
+  border-left: 1px solid rgb(214, 214, 214);
+  cursor: pointer;
+}
+
+body.dark .delete-button{
+  background-color: rgb(52 73 117);
+  color: white;
+  border-color: rgb(42 57 89);
+}
+
+.filters2-buttons{
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.filters2-button{
+  height:fit-content;
+  width: fit-content;
+  border: 2px outset rgb(179, 179, 179);
+  padding: 1px 3px;
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+body.dark .filters2-button{
+  border-color: rgb(211, 211, 211);
+}
+#history-header {
+  width: 70px;
+}
+#team-header {
+  width: 100px;
+}
+#perf-header {
+  width: 55px;
+}
+#risk-header {
+  width: 55px;
+}
+#spend-header{
+  width: 120px;
+}
+#previous-surveillance-header{
+  width: 75px;
+}
+#reason1-header, #reason2-header,#reason3-header, #reason4-header {
+  width: 50px;
+}
+#reason1-header .header2-text, #reason2-header .header2-text, #reason3-header .header2-text, #reason4-header .header2-text{
+  font-size: 8px !important;
+}
+
+/* perf table */
+#perf-table{
+  border-collapse: collapse;
+  width:1000px;
+}
+#perf-table thead th {
+  background-color: #dddcdc; /* Ensure header background remains visible */
+  border-bottom: 2px solid #000; /* Optional: Add border for better visibility */
+}
+.dark #perf-table thead th {
+  background-color: #000000; /* Ensure header background remains visible */
+  border-color: #ffffff; /* Optional: Add border for better visibility */
+}
+#perf-table tbody td {
+  background-color: #fff;
+  padding:5px;
+  max-width: 200px;
+  border: 1px solid #ffffff;
+}
+.dark #perf-table tbody td {
+  background-color: rgb(7 14 29);
+  padding:5px;
+  max-width: 200px;
+  border: 1px solid #000;
+}
+#perf-table tbody td textarea{
+  resize: none;
+}
+/* Obsolete */
+
+#data-table {
+  font: 16px "Lucida Grande", Helvetica, Arial, sans-serif;
+  border-collapse: collapse;
+  width: 99%;
+  table-layout: fixed;
+  box-shadow: 0px -4px 15px rgba(0, 0, 0, 0.5);
+  border: 1px solid #000000;
+}
+
+#data-table td,
+#data-table th {
+  border-top: 1px solid #000000;
+  border-bottom: 1px solid #000000;
+  padding: 8px;
+  text-align: center;
+}
+
+#data-table tr:nth-child(even) {
+  background-color: #f0f1ff
+}
+
+/*
+#data-table tr:hover {
+  background-color: rgba(242, 244, 255, 0.123)
+}
+*/
+#data-table th {
+  /*background: rgb(0,0,158);
+  background: linear-gradient(0deg, rgba(0,0,158,1) 0%, rgba(87,87,255,1) 100%);*/
+  background-color: #c4c4c4;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: center;
+}
+
+#data-table th input {
+  max-width: 70px;
+  height: 15px;
+}
+
+
+
+
+
+.cursorPointer {
+  cursor: pointer;
+}
+
+/* Set the maximum height for table cells and allow wrapping */
+#data-table td {
+  max-height: 50px;
+  /* Adjust the height as needed */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+th button {
+  font-size: 10px;
+  /* Increase font size */
+  cursor: pointer;
+}
+
+.sort-button {
+  border: none;
+  background-color: transparent;
+  font-size: 14px;
+  /* Increase font size */
+  cursor: pointer;
+}
+
+.filter-button {
+  font-size: 10px;
+  /* Increase font size */
+  cursor: pointer;
+}
+
+.filter-button.active {
+  background-color: #3d77ce;
+  border-color: #000000;
+}
+
+td.intensity4 {
+  color: red;
+  text-shadow: 1px 1px 10px rgba(0, 0, 0, 0.3);
+  font-weight: bold;
+}
+
+td.intensity3 {
+  color: rgb(255, 166, 0);
+  text-shadow: 1px 1px 10px rgba(0, 0, 0, 0.3);
+  font-weight: bold;
+}
+
+td.intensity2 {
+  color: limegreen;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+  font-weight: bold;
+}
+
+td.intensity1 {
+  color: green;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+  font-weight: bold;
+}
+
+td input[type="checkbox"] {
+  transform: scale(1.5);
+  /* Scale up the checkbox by 1.5 times */
+  margin: 10px;
+  /* Adjust margin if needed */
+}
+
+
+/*#data-table {
+  font: 16px "Lucida Grande", Helvetica, Arial, sans-serif;
+  border-collapse: collapse;
+  width: 99%;
+  table-layout: fixed;
+  box-shadow: 0px -4px 15px rgba(0, 0, 0, 0.5);
+  margin: auto;
+  border: 1px solid #000000;
+}*/
+
+#data-table td,
+#data-table th {
+  border-top: 1px solid #000000;
+  border-bottom: 1px solid #000000;
+  padding: 8px;
+  text-align: center;
+}
+
+#data-table tr:nth-child(even) {
+  background-color: #f0f1ff
+}
+
+/*
+#data-table tr:hover {
+  background-color: rgba(242, 244, 255, 0.123)
+}
+*/
+#data-table th {
+  /*background: rgb(0,0,158);
+  background: linear-gradient(0deg, rgba(0,0,158,1) 0%, rgba(87,87,255,1) 100%);*/
+  background-color: #c4c4c4;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: center;
+}
+
+#data-table th input {
+  max-width: 70px;
+  height: 15px;
+}
+
+
+
+
+
+/* Set the maximum height for table cells and allow wrapping */
+.table1 td {
+  max-height: 50px;
+  /* Adjust the height as needed */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.table1 th button {
+  font-size: 10px;
+  /* Increase font size */
+  cursor: pointer;
+}
+
+.table1 .sort-button {
+  border: none;
+  background-color: transparent;
+  font-size: 14px;
+  /* Increase font size */
+  cursor: pointer;
+}
+
+.table1 .filter-button {
+  font-size: 10px;
+  /* Increase font size */
+  cursor: pointer;
+}
+
+.table1 .filter-button.active {
+  background-color: #3d77ce;
+  border-color: #000000;
+}
+
+.table1 td.intensity4 {
+  color: red;
+  text-shadow: 1px 1px 10px rgba(0, 0, 0, 0.3);
+  font-weight: bold;
+}
+
+.table1 td.intensity3 {
+  color: rgb(255, 166, 0);
+  text-shadow: 1px 1px 10px rgba(0, 0, 0, 0.3);
+  font-weight: bold;
+}
+
+.table1 td.intensity2 {
+  color: limegreen;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+  font-weight: bold;
+}
+
+.table1 td.intensity1 {
+  color: green;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+  font-weight: bold;
+}
+
+.table1 td input[type="checkbox"] {
+  transform: scale(1.5);
+  /* Scale up the checkbox by 1.5 times */
+  margin: 10px;
+  /* Adjust margin if needed */
+}
+
+
+.table1 {
+  font: 16px "Lucida Grande", Helvetica, Arial, sans-serif;
+  border-collapse: collapse;
+  width: 99%;
+  table-layout: fixed;
+  box-shadow: 0px -4px 15px rgba(0, 0, 0, 0.5);
+  margin: auto;
+  border: 1px solid #000000;
+}
+
+.selectionTable {
+
+  margin-top: 50px;
+}
+
+.table1 td,
+.table1 th {
+  border-top: 1px solid #000000;
+  border-bottom: 1px solid #000000;
+  padding: 8px;
+  text-align: center;
+}
+
+.table1 tr:nth-child(even) {
+  background-color: #f0f1ff
+}
+
+/*
+#data-table tr:hover {
+  background-color: rgba(242, 244, 255, 0.123)
+}
+*/
+.table1 th {
+  /*background: rgb(0,0,158);
+  background: linear-gradient(0deg, rgba(0,0,158,1) 0%, rgba(87,87,255,1) 100%);*/
+  background-color: #c4c4c4;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: center;
+}
+
+.table1 th input {
+  max-width: 70px;
+  height: 15px;
+}
+
+
+
+
+
+#historyPopup {
+  height: 300px;
+  width: 1200px;
+  background-color: #dddddd;
+  margin-top: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  border: 1px solid grey;
+  border-radius: 3px;
+}
+
+.selectionPopup {
+  height: 300px;
+  width: 700px;
+  background-color: #dddddd;
+  margin-top: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  border: 1px solid grey;
+  border-radius: 3px;
+}
+
+.selectionPopup .content {
+  display: flex;
+  justify-content: center;
+}
+
+.selectionPopup .content button {
+  margin-top: 20px;
+  margin-left: 20px;
+  margin-right: 20px;
+  cursor: pointer;
+}
+
+.selectionPopup textarea {
+  font-size: 26px;
+}
+
+.selectionPopup button {
+  font-size: 26px;
+}
+
+.cancelBar {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.cancelButton {
+  background-color: red;
+  cursor: pointer;
+}
+
+
+
+/* Wrapper for the input and suffix */
+.input-wrapper {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  /* Adjust width as needed */
+}
+
+/* Style the input field */
+.input-wrapper input {
+  height: 20px;
+  width: 85px;
+  padding-right: 30px;
+  /* Space for the suffix */
+  padding: 2px 4px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+/* Style for the percentage sign */
+.input-suffix {
+  position: absolute;
+  right: 57px;
+  top: 13px;
+  /*top: 50%;*/
+  transform: translateY(-50%);
+  font-size: 16px;
+  color: #555;
+  pointer-events: none;
+  /* Prevent interaction with the suffix */
+}
+
+
+/* Hide the spinners for Chrome, Safari, Edge, and Opera */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Hide the spinners for Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+/* Hide the spinners for Internet Explorer */
+input[type="number"]::-ms-clear,
+input[type="number"]::-ms-reveal {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
+/* styles.css */
+
+
+
+
+/*#cotaDashboardZone {
+  height: 200px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+#cotaDashboard {
+  height: 200px;
+  width: 50%;
+  display: flex;
+}
+*/
+
+#supplierDashboard {
+  height: 100px;
+  width: 100%;
+}
+
+#supplierDashboardZone {
+  height: fit-content;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+#supplierDashboard {
+  background-color: rgb(150, 150, 150);
+  width: 70%;
+  height: fit-content;
+  display: flex;
+}
+
+#dataviz {
+  height: fit-content;
+  width: fit-content;
+  display: flex;
+  flex-direction: column;
+  padding: 2px;
+}
+
+#scoreGauge {
+  background-color: #dddddd;
+  height: 100px;
+  width: 200px;
+  margin-bottom: 3px;
+}
+
+#radarInfo {
+  background-color: #dddddd;
+  height: 30px;
+  width: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#supplierCaption {
+  height: 70%;
+  width: fit-content;
+  background-color: rgba(70, 131, 180, 0.333);
+  border: solid 3px steelblue;
+  border-radius: 2px;
+  margin-right: 5px;
+}
+
+#supplierCaption span {
+  padding: 10px;
+  font-weight: bold;
+}
+
+#comparisonCaption {
+  height: 70%;
+  width: fit-content;
+  background-color: rgba(255, 166, 0, 0.333);
+  border: solid 3px orange;
+  margin-left: 5px;
+}
+
+#comparisonCaption span {
+  padding: 10px;
+  font-weight: bold;
+}
+
+#scoreRadar {
+  background-color: #dddddd;
+  height: 230px;
+  width: 200px;
+}
+
+#scoreTableZone {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#scoreTable {
+  background-color: #e7e7e7;
+  height: 99%;
+  width: 99%;
+}
+
+#intensityZone {
+  height: fit-content;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#intensityDashboard {
+  background-color: rgb(216, 216, 216);
+  height: fit-content;
+  width: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 1px;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.15);
+}
+
+#scoreZone {
+  background-color: #00B7FF;
+  height: fit-content;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#scoreDashboard {
+  background-color: darkgrey;
+  height: 100%;
+  width: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#cotaCardList {
+  height: 150px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.cotaCard {
+  background-color: rgba(209, 209, 209, 0.333);
+  width: 130px;
+  height: 100%;
+  margin-left: 20px;
+  margin-right: 20px;
+  text-align: center;
+  border: 1px solid black;
+  border-radius: 2px;
+  box-shadow: 2px 2px 6px rgb(83, 83, 83);
+}
+
+.cotaCard a {
+  text-decoration: none;
+}
+
+
+
+
+.cardTop {
+  border: 1px solid black;
+  border-bottom-width: 2px;
+  height: 15%;
+}
+
+.perfCard .cardTop {
+  background-color: rgba(70, 131, 180, 0.333);
+}
+
+.riskCard .cardTop {
+  background-color: rgba(180, 129, 70, 0.333);
+}
+
+.cardBody {
+  height: 68%;
+  cursor: pointer;
+}
+
+.cardBottom {
+  height: 15%;
+  border-top: 1px solid black;
+  cursor: pointer;
+}
+
+
+.formPopup {
+  height: 500px;
+  width: 1200px;
+  background-color: #dddddd;
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  border: 1px solid grey;
+  border-radius: 3px;
+}
+
+.formPopup .formWrap {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+  overflow-y: scroll;
+}
+
+.formTable {
+  background-color: white;
+  border: 1px solid black;
+  border-collapse: collapse;
+  width: 95%;
+  margin-bottom: 30px;
+}
+
+.formTable .red.active {
+  background-color: red
+}
+
+.formTable .orange.active {
+  background-color: orange
+}
+
+.formTable .greenyellow.active {
+  background-color: greenyellow
+}
+
+.formTable .green.active {
+  background-color: green
+}
+
+.formTable td {
+  border: 1px solid black;
+  padding: 5px
+}
