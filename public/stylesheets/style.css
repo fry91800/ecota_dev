@@ -714,35 +714,45 @@ body.dark .filters2-button{
 #reason1-header .header2-text, #reason2-header .header2-text, #reason3-header .header2-text, #reason4-header .header2-text{
   font-size: 8px !important;
 }
-
-/* perf table */
-#perf-table{
+/* Cota table */
+#cota-table tbody td .popup-open{
+  font-size: 30px;
+  cursor:pointer;
+}
+/* form table */
+.form-table{
   border-collapse: collapse;
   width:1000px;
 }
-#perf-table thead th {
+.form-table thead th {
   background-color: #dddcdc; /* Ensure header background remains visible */
   border-bottom: 2px solid #000; /* Optional: Add border for better visibility */
 }
-.dark #perf-table thead th {
+.dark .form-table thead th {
   background-color: #000000; /* Ensure header background remains visible */
   border-color: #ffffff; /* Optional: Add border for better visibility */
 }
-#perf-table tbody td {
+.form-table tbody td {
   background-color: #fff;
   padding:5px;
   max-width: 200px;
   border: 1px solid #ffffff;
 }
-.dark #perf-table tbody td {
+.dark .form-table tbody td {
   background-color: rgb(7 14 29);
   padding:5px;
   max-width: 200px;
   border: 1px solid #000;
 }
-#perf-table tbody td textarea{
+.form-table tbody td textarea{
   resize: none;
 }
+
+#risk-table td{
+  font-size: 15px;
+}
+
+
 /* Obsolete */
 
 #data-table {

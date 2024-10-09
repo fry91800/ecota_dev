@@ -19,7 +19,7 @@ $(document).ready(function () {
             <td><div id="risk-${entry.vendorcode}" class="popup-open" data-target-id="risk-overlay" data-vendorcode="${entry.vendorcode}" data-purchasingorganisationcode="${entry.purchasingorganisationcode}" data-field="forceriskcota">${entry.riskscope ? '<i class="fa-regular fa-file-lines"></i>' : ''}</td>
             <td>${entry.vendorname} - ${entry.city}(${entry.country})</td>
             <td>${entry.mdmcode}</td>
-            <td>${entry.teamshorttext}</td>
+            <td>${entry.commodity}</td>
             </tr>`);
             });
             $('.popup-close').each(function () {
@@ -50,6 +50,7 @@ $(document).ready(function () {
     function loadAnswers(vendorcode, purchasingorganisationcode) {
         $.get(`${baseUrl}/${currentLang}/cota/answers`, { vendorcode, purchasingorganisationcode }, function (data) {
             $('.answer').prop('checked', false);
+            $(`.comment`).val("");
             data.forEach((element) => {
                 $(`#${element.questioncode}-${element.answer}`).prop('checked', true)
                 $(`#${element.questioncode}-comment`).val(element.comment);

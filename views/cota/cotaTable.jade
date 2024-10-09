@@ -3,14 +3,14 @@ table#cota-table.table2
         tr
             th#perf-cota-header
                 .header2
-                    .header2-text Perf
+                    .header2-text Performance
                     .header2-order
                         i.fa-solid.fa-sort
                 .filters2
                     .filters2-input        
             th#risk-cota-header
                 .header2
-                    .header2-text Risk
+                    .header2-text Surveillance
                     .header2-order
                         i.fa-solid.fa-sort
                 .filters2
@@ -40,8 +40,8 @@ table#cota-table.table2
                 .header2
                     .header2-text Division
                 .filters2
-                    .filters2-buttons
-                        .filters2-button WB
-                        .filters2-button SE
-                        .filters2-button LGI
+                    .filters2-input
+                        .search-button(id="commodity-search-button" class="search-button") <i class="fa-solid fa-magnifying-glass"></i>
+                        input(type="text" id="commodity-search" class="search" placeholder="Search")
+                        .delete-button <i class="fa-solid fa-xmark"></i>
     tbody

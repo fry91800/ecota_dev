@@ -1,0 +1,40 @@
+#risk-overlay.overlay
+    #risk-popup.popup
+        .popup-bar
+            .popup-title GRF-0118
+            .popup-close(data-target-id="risk-overlay")
+                i.fa-solid.fa-circle-xmark
+        table#risk-table.form-table
+            thead
+                tr
+                    th Theme
+                    th Aide à la cotation
+                    th Sous-Theme
+                    th Niveau 4
+                    th Niveau 3
+                    th Niveau 2
+                    th Niveau 1
+                    th Niveau Eval Précédente
+                    th Commentaire
+                    th Moyenne
+            tbody
+                tr
+                    td F1 blabla
+                    td reporter des truc par rapport au truc
+                    td Organisation
+                    td
+                        input(type="radio" class="answer" name="rf1" id="rf1-4" value=4)
+                        label(for="yes") Niveau 4 
+                    td
+                        input(type="radio" class="answer" name="rf1" id="rf1-3" value=3)
+                        label(for="yes") Niveau 3 
+                    td
+                        input(type="radio" class="answer" name="rf1" id="rf1-2" value=2)
+                        label(for="yes") Niveau 2
+                    td
+                        input(type="radio" class="answer" name="rf1" id="rf1-1" value=1)
+                        label(for="yes") Niveau 1 
+                    td
+                    td
+                        textarea(class="comment" name="rf1" rows="4" cols="15" id="rf1-comment")
+                    td
