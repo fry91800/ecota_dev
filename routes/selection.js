@@ -35,6 +35,7 @@ router.post('/updaterevenue', async function (req, res, next) {
     // Step 2: Ajouts du pourcentage dans la base
     await campaignService.updateRevenue(revenue);
     //res.redirect("/en/selection")
+    res.json({status: "ok"})
   }
   catch (e) {
     next(e)

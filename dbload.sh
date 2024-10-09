@@ -1,0 +1,1 @@
+sudo -u postgres bash -c "dropdb ecota && createdb ecota && psql -d ecota -f dump.sql"

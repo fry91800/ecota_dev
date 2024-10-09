@@ -3,6 +3,7 @@ $(document).ready(function () {
     let timeout = null;
     function updateRevenue() {
         $.post(`${baseUrl}/${currentLang}/selection/updaterevenue`, { revenue: revenuePreselection }, function () {
+            console.log("hey")
             resetAndLoad();
         });
     }

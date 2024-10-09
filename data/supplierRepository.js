@@ -50,7 +50,6 @@ async function syncTeamData(teamData) {
     try {
         await commonRepository.insertOne("YearlyTeamCotaData", data);
     } catch (error) {
-        console.log(error)
     }
 }
 }
