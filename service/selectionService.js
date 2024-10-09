@@ -40,9 +40,6 @@ async function updateAllSelectionData() {
         data = await addPreviousSurveillance(data);
         // Step 3: Ajout du boolean spendscope (Appartien au % requis de spend)
         data = await computeSpendScope(data);
-        for(const elt of data){
-            console.log(`${elt.vendorname} ${elt.purchasingorganisationcode}: ${elt.spendscope}`)
-        }
         // Step 4: Ajout des boolean perfscope et riskscope
         addScopes(data);
         // Step 5: Ajout de la variable de detection de nouveau nom
