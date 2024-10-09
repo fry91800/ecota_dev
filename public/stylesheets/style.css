@@ -724,6 +724,18 @@ body.dark .filters2-button{
   border-collapse: collapse;
   width:1000px;
 }
+.form-table tr {
+  background-color: #ffffff
+}
+.dark .form-table tr {
+  background-color: #212147
+}
+.form-table tr:nth-child(even) {
+  background-color: #e0e0e0
+}
+.dark .form-table tr:nth-child(even) {
+  background-color: #200f48
+}
 .form-table thead th {
   background-color: #dddcdc; /* Ensure header background remains visible */
   border-bottom: 2px solid #000; /* Optional: Add border for better visibility */
@@ -733,16 +745,12 @@ body.dark .filters2-button{
   border-color: #ffffff; /* Optional: Add border for better visibility */
 }
 .form-table tbody td {
-  background-color: #fff;
   padding:5px;
   max-width: 200px;
   border: 1px solid #ffffff;
 }
 .dark .form-table tbody td {
-  background-color: rgb(7 14 29);
-  padding:5px;
-  max-width: 200px;
-  border: 1px solid #000;
+  border-color: #000;
 }
 .form-table tbody td textarea{
   resize: none;
