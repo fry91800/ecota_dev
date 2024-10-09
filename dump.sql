@@ -2,8 +2,8 @@
 -- PostgreSQL database dump
 --
 
--- Dumped from database version 12.20 (Ubuntu 12.20-0ubuntu0.20.04.1)
--- Dumped by pg_dump version 12.20 (Ubuntu 12.20-0ubuntu0.20.04.1)
+-- Dumped from database version 16.4 (Ubuntu 16.4-1.pgdg22.04+1)
+-- Dumped by pg_dump version 16.4 (Ubuntu 16.4-1.pgdg22.04+1)
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
@@ -53,7 +53,7 @@ CREATE SEQUENCE public.answer_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.answer_id_seq OWNER TO postgres;
+ALTER SEQUENCE public.answer_id_seq OWNER TO postgres;
 
 --
 -- Name: answer_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
@@ -108,7 +108,7 @@ CREATE SEQUENCE public.cached_selection_data_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.cached_selection_data_id_seq OWNER TO postgres;
+ALTER SEQUENCE public.cached_selection_data_id_seq OWNER TO postgres;
 
 --
 -- Name: cached_selection_data_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
@@ -145,7 +145,7 @@ CREATE SEQUENCE public.campaign_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.campaign_id_seq OWNER TO postgres;
+ALTER SEQUENCE public.campaign_id_seq OWNER TO postgres;
 
 --
 -- Name: campaign_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
@@ -182,7 +182,7 @@ CREATE SEQUENCE public.country_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.country_id_seq OWNER TO postgres;
+ALTER SEQUENCE public.country_id_seq OWNER TO postgres;
 
 --
 -- Name: country_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
@@ -218,7 +218,7 @@ CREATE SEQUENCE public.intensity_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.intensity_id_seq OWNER TO postgres;
+ALTER SEQUENCE public.intensity_id_seq OWNER TO postgres;
 
 --
 -- Name: intensity_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
@@ -267,7 +267,7 @@ CREATE SEQUENCE public.orga_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.orga_id_seq OWNER TO postgres;
+ALTER SEQUENCE public.orga_id_seq OWNER TO postgres;
 
 --
 -- Name: orga_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
@@ -305,7 +305,7 @@ CREATE SEQUENCE public.plant_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.plant_id_seq OWNER TO postgres;
+ALTER SEQUENCE public.plant_id_seq OWNER TO postgres;
 
 --
 -- Name: plant_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
@@ -342,7 +342,7 @@ CREATE SEQUENCE public.position_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.position_id_seq OWNER TO postgres;
+ALTER SEQUENCE public.position_id_seq OWNER TO postgres;
 
 --
 -- Name: position_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
@@ -432,7 +432,7 @@ CREATE SEQUENCE public.result_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.result_id_seq OWNER TO postgres;
+ALTER SEQUENCE public.result_id_seq OWNER TO postgres;
 
 --
 -- Name: result_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
@@ -484,7 +484,7 @@ CREATE SEQUENCE public.td_perfo_synthesis_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.td_perfo_synthesis_id_seq OWNER TO postgres;
+ALTER SEQUENCE public.td_perfo_synthesis_id_seq OWNER TO postgres;
 
 --
 -- Name: td_perfo_synthesis_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
@@ -523,111 +523,13 @@ CREATE SEQUENCE public.team_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.team_id_seq OWNER TO postgres;
+ALTER SEQUENCE public.team_id_seq OWNER TO postgres;
 
 --
 -- Name: team_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
 ALTER SEQUENCE public.team_id_seq OWNED BY public.team.id;
-
-
---
--- Name: yearly_supplier_snapshot; Type: TABLE; Schema: public; Owner: postgres
---
-
-CREATE TABLE public.yearly_supplier_snapshot (
-    id integer NOT NULL,
-    year integer,
-    vendorcode character varying(255),
-    vendorname character varying(255),
-    mdmcode character varying(255),
-    country character varying(255),
-    city character varying(255),
-    address character varying(255),
-    source character varying(255),
-    "createdAt" timestamp with time zone NOT NULL,
-    "updatedAt" timestamp with time zone NOT NULL
-);
-
-
-ALTER TABLE public.yearly_supplier_snapshot OWNER TO postgres;
-
---
--- Name: yearly_supplier_snapshot_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
---
-
-CREATE SEQUENCE public.yearly_supplier_snapshot_id_seq
-    AS integer
-    START WITH 1
-    INCREMENT BY 1
-    NO MINVALUE
-    NO MAXVALUE
-    CACHE 1;
-
-
-ALTER TABLE public.yearly_supplier_snapshot_id_seq OWNER TO postgres;
-
---
--- Name: yearly_supplier_snapshot_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
---
-
-ALTER SEQUENCE public.yearly_supplier_snapshot_id_seq OWNED BY public.yearly_supplier_snapshot.id;
-
-
---
--- Name: yearly_team_cota_data; Type: TABLE; Schema: public; Owner: postgres
---
-
-CREATE TABLE public.yearly_team_cota_data (
-    id integer NOT NULL,
-    year integer,
-    vendorcode character varying(255),
-    purchasingorganisationcode character varying(255),
-    commodity character varying(255),
-    "Value(EUR)" integer DEFAULT 0,
-    reason1 boolean DEFAULT false,
-    reason2 boolean DEFAULT false,
-    reason3 boolean DEFAULT false,
-    reason4 boolean DEFAULT false,
-    forceperfcota boolean,
-    forceriskcota boolean,
-    comment text,
-    commenter integer,
-    intensity integer,
-    perfscope boolean DEFAULT false,
-    riskscope boolean DEFAULT false,
-    lastsurveillance integer,
-    spendscope boolean DEFAULT false,
-    status character varying(255),
-    hasnewname boolean DEFAULT false,
-    "createdAt" timestamp with time zone NOT NULL,
-    "updatedAt" timestamp with time zone NOT NULL
-);
-
-
-ALTER TABLE public.yearly_team_cota_data OWNER TO postgres;
-
---
--- Name: yearly_team_cota_data_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
---
-
-CREATE SEQUENCE public.yearly_team_cota_data_id_seq
-    AS integer
-    START WITH 1
-    INCREMENT BY 1
-    NO MINVALUE
-    NO MAXVALUE
-    CACHE 1;
-
-
-ALTER TABLE public.yearly_team_cota_data_id_seq OWNER TO postgres;
-
---
--- Name: yearly_team_cota_data_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
---
-
-ALTER SEQUENCE public.yearly_team_cota_data_id_seq OWNED BY public.yearly_team_cota_data.id;
 
 
 --
@@ -705,20 +607,6 @@ ALTER TABLE ONLY public.td_perfo_synthesis ALTER COLUMN id SET DEFAULT nextval('
 --
 
 ALTER TABLE ONLY public.team ALTER COLUMN id SET DEFAULT nextval('public.team_id_seq'::regclass);
-
-
---
--- Name: yearly_supplier_snapshot id; Type: DEFAULT; Schema: public; Owner: postgres
---
-
-ALTER TABLE ONLY public.yearly_supplier_snapshot ALTER COLUMN id SET DEFAULT nextval('public.yearly_supplier_snapshot_id_seq'::regclass);
-
-
---
--- Name: yearly_team_cota_data id; Type: DEFAULT; Schema: public; Owner: postgres
---
-
-ALTER TABLE ONLY public.yearly_team_cota_data ALTER COLUMN id SET DEFAULT nextval('public.yearly_team_cota_data_id_seq'::regclass);
 
 
 --
@@ -921,10 +809,6 @@ bd74981f-74c1-48f0-9c28-e56469152490	1	2024-09-25 14:08:29.199+02	2024-09-25 14:
 --
 
 COPY public.td_perfo_synthesis ("VendorCode", purchasingorganisationcode, "Value(EUR)", id) FROM stdin;
-MDM500875	\N	\N	24
-MDM500876	\N	\N	25
-MDM506017	\N	\N	26
-MDM506018	\N	\N	27
 MDM537405	GOPE	100000	28
 MDM537406	GOPE	150000	29
 MDM537415	GOPE	200000	30
@@ -951,6 +835,10 @@ MDM542411	MB02	700000	47
 MDM542433	MB02	800000	48
 MDM544460	MB03	300000	50
 MDM544413	MB03	600000	52
+MDM500875	GOPE	120000	24
+MDM500876	GOPE	360000	25
+MDM506017	GOPE	490000	26
+MDM506018	GOPE	780000	27
 \.
 
 
@@ -966,142 +854,6 @@ COPY public.team (id, code, shorttext, longtext, parent, "createdAt", "updatedAt
 13	MP	LGI - MP	\N	3	2024-10-08 21:18:07.42973+02	2024-10-08 21:18:07.42973+02
 14	HSPP	LGI - HSPP	\N	3	2024-10-08 21:18:07.432207+02	2024-10-08 21:18:07.432207+02
 15	SP	LGI - SP	\N	3	2024-10-08 21:18:07.437971+02	2024-10-08 21:18:07.437971+02
-\.
-
-
---
--- Data for Name: yearly_supplier_snapshot; Type: TABLE DATA; Schema: public; Owner: postgres
---
-
-COPY public.yearly_supplier_snapshot (id, year, vendorcode, vendorname, mdmcode, country, city, address, source, "createdAt", "updatedAt") FROM stdin;
-1	2024	MDM537422	CISOLIFT DISTRIBUTION	MDM537422	CA	ST GERMAIN DE GRANTHAM	192 RUE SYLVESTRE	SAP	2024-10-09 12:19:28.049+02	2024-10-09 12:19:28.049+02
-2	2024	MDM537415	EATON	MDM537415	GB	HAVANT	LARCHWOOD AV	SAP	2024-10-09 12:19:28.057+02	2024-10-09 12:19:28.057+02
-3	2024	MDM544480	INTEGRATED PROTECTION SERVICES	MDM544480	US	CINCINNATI	5303 LESTER RD	SAP	2024-10-09 12:19:28.059+02	2024-10-09 12:19:28.059+02
-4	2024	MDM506017	SERENIA	MDM506017	FR	BOULOGNE BILLANCOURT	72 AV EDOUARD VAILLANT	SAP	2024-10-09 12:19:28.061+02	2024-10-09 12:19:28.061+02
-5	2024	MDM544478	UNISON	MDM544478	GB	SCARBOROUGH	FAROE HOUSE	SAP	2024-10-09 12:19:28.064+02	2024-10-09 12:19:28.064+02
-6	2024	MDM500875	FEDEX EXPRESS FR	MDM500875	FR	LYON	58 AV LECLERC	SAP	2024-10-09 12:19:28.065+02	2024-10-09 12:19:28.065+02
-7	2024	MDM542495	MHE DEMAG MALASIA	MDM542495	MY	KLANG	15 PERISIARAN ASTANA KYU 2	SAP	2024-10-09 12:19:28.067+02	2024-10-09 12:19:28.067+02
-8	2024	MDM537405	GALLIONS	MDM537405	FR	SURESNES	142 RUE GAMBETTA	SAP	2024-10-09 12:19:28.069+02	2024-10-09 12:19:28.069+02
-9	2024	MDM544481	PAT GOOD	MDM544481	US	CINCINNATI	5303 LESTER RD	SAP	2024-10-09 12:19:28.07+02	2024-10-09 12:19:28.07+02
-10	2024	MDM506018	SANCTUAR	MDM506018	FR	BOULOGNE BILLANCOURT	72 AV EDOUARD VAILLANT	SAP	2024-10-09 12:19:28.072+02	2024-10-09 12:19:28.072+02
-11	2024	MDM544479	UNIVIEW	MDM544479	GB	SCARBOROUGH	FAROE HOUSE	SAP	2024-10-09 12:19:28.073+02	2024-10-09 12:19:28.073+02
-12	2024	MDM500876	RADAX EXPRESS FR	MDM500876	FR	LYON	58 AV LECLERC	SAP	2024-10-09 12:19:28.075+02	2024-10-09 12:19:28.075+02
-13	2024	MDM542498	GRANY SST	MDM542498	CA	ST JOSEPH DU LAC	92 DES MARGUERITES	SAP	2024-10-09 12:19:28.076+02	2024-10-09 12:19:28.076+02
-14	2024	MDM542497	GALLI LABORATORY	MDM542497	MY	MELAKA	COMPOSITES TECHNOLOGY CITY	SAP	2024-10-09 12:19:28.078+02	2024-10-09 12:19:28.078+02
-15	2024	MDM542496	ROT MALASIA	MDM542496	MY	KLANG	15 PERISIARAN ASTANA KYU 2	SAP	2024-10-09 12:19:28.079+02	2024-10-09 12:19:28.079+02
-16	2024	MDM537406	GUER	MDM537406	FR	SURESNES	142 RUE GAMBETTA	SAP	2024-10-09 12:19:28.081+02	2024-10-09 12:19:28.081+02
-17	2024	MDM537423	SWIFT DISTRIBUTION	MDM537423	CA	ST GERMAIN DE GRANTHAM	192 RUE SYLVESTRE	SAP	2024-10-09 12:19:28.082+02	2024-10-09 12:19:28.082+02
-18	2024	MDM537416	ALTON	MDM537416	GB	HAVANT	LARCHWOOD AV	SAP	2024-10-09 12:19:28.083+02	2024-10-09 12:19:28.083+02
-19	2024	MDM542492	CTRM TESTING LABORATORY	MDM542492	MY	MELAKA	COMPOSITES TECHNOLOGY CITY	SAP	2024-10-09 12:19:28.085+02	2024-10-09 12:19:28.085+02
-20	2024	MDM542499	CONFERENCE SST	MDM542499	CA	ST JOSEPH DU LAC	92 DES MARGUERITES	SAP	2024-10-09 12:19:28.086+02	2024-10-09 12:19:28.086+02
-21	2024	MDM542493	GASP	MDM542493	MY	MELAKA	COMPOSITES TECHNOLOGY CITY	SAP	2024-10-09 12:19:28.088+02	2024-10-09 12:19:28.088+02
-22	2024	MDM542490	METAL CORP	MDM542490	CA	ST JOSEPH DU LAC	92 DES MARGUERITES	SAP	2024-10-09 12:19:28.089+02	2024-10-09 12:19:28.089+02
-23	2024	MDM544470	ARPON	MDM544470	GB	SCARBOROUGH	FAROE HOUSE	SAP	2024-10-09 12:19:28.09+02	2024-10-09 12:19:28.09+02
-24	2024	MDM544482	ELVIN	MDM544482	US	CINCINNATI	5303 LESTER RD	SAP	2024-10-09 12:19:28.092+02	2024-10-09 12:19:28.092+02
-25	2024	MDM542444	FRAG	MDM542444	MY	KLANG	15 PERISIARAN ASTANA KYU 2	SAP	2024-10-09 12:19:28.093+02	2024-10-09 12:19:28.093+02
-26	2024	MDM542455	BOT	MDM542455	MY	KLANG	15 PERISIARAN ASTANA KYU 2	SAP	2024-10-09 12:19:28.094+02	2024-10-09 12:19:28.094+02
-27	2024	MDM542411	ARC CORP	MDM542411	MY	MELAKA	COMPOSITES TECHNOLOGY CITY	SAP	2024-10-09 12:19:28.096+02	2024-10-09 12:19:28.096+02
-28	2024	MDM542433	REST API	MDM542433	CA	ST JOSEPH DU LAC	92 DES MARGUERITES	SAP	2024-10-09 12:19:28.097+02	2024-10-09 12:19:28.097+02
-29	2024	MDM544460	ODL SERVICES	MDM544460	GB	SCARBOROUGH	FAROE HOUSE	SAP	2024-10-09 12:19:28.099+02	2024-10-09 12:19:28.099+02
-30	2024	MDM544413	GREP REDEX	MDM544413	US	CINCINNATI	5303 LESTER RD	SAP	2024-10-09 12:19:28.1+02	2024-10-09 12:19:28.1+02
-\.
-
-
---
--- Data for Name: yearly_team_cota_data; Type: TABLE DATA; Schema: public; Owner: postgres
---
-
-COPY public.yearly_team_cota_data (id, year, vendorcode, purchasingorganisationcode, commodity, "Value(EUR)", reason1, reason2, reason3, reason4, forceperfcota, forceriskcota, comment, commenter, intensity, perfscope, riskscope, lastsurveillance, spendscope, status, hasnewname, "createdAt", "updatedAt") FROM stdin;
-2	2024	MDM537422	MB03	\N	0	f	f	f	f	\N	\N	\N	\N	\N	f	f	\N	f	\N	f	2024-10-09 12:19:28.058+02	2024-10-09 12:19:28.058+02
-5	2024	MDM537415	MB03	\N	0	f	f	f	f	\N	\N	\N	\N	\N	f	f	\N	f	\N	f	2024-10-09 12:19:28.064+02	2024-10-09 12:19:28.064+02
-7	2024	MDM544480	MB02	\N	0	f	f	f	f	\N	\N	\N	\N	\N	f	f	\N	f	\N	f	2024-10-09 12:19:28.068+02	2024-10-09 12:19:28.068+02
-8	2024	MDM544480	MB03	\N	0	f	f	f	f	\N	\N	\N	\N	\N	f	f	\N	f	\N	f	2024-10-09 12:19:28.07+02	2024-10-09 12:19:28.07+02
-10	2024	MDM506017	MB02	\N	0	f	f	f	f	\N	\N	\N	\N	\N	f	f	\N	f	\N	f	2024-10-09 12:19:28.073+02	2024-10-09 12:19:28.073+02
-11	2024	MDM506017	MB03	\N	0	f	f	f	f	\N	\N	\N	\N	\N	f	f	\N	f	\N	f	2024-10-09 12:19:28.074+02	2024-10-09 12:19:28.074+02
-12	2024	MDM506017	GOPE	\N	0	f	f	f	f	\N	\N	\N	\N	\N	f	f	\N	f	\N	f	2024-10-09 12:19:28.076+02	2024-10-09 12:19:28.076+02
-13	2024	MDM544478	MB02	\N	0	f	f	f	f	\N	\N	\N	\N	\N	f	f	\N	f	\N	f	2024-10-09 12:19:28.077+02	2024-10-09 12:19:28.077+02
-14	2024	MDM544478	MB03	\N	0	f	f	f	f	\N	\N	\N	\N	\N	f	f	\N	f	\N	f	2024-10-09 12:19:28.079+02	2024-10-09 12:19:28.079+02
-16	2024	MDM500875	MB02	\N	0	f	f	f	f	\N	\N	\N	\N	\N	f	f	\N	f	\N	f	2024-10-09 12:19:28.081+02	2024-10-09 12:19:28.081+02
-17	2024	MDM500875	MB03	\N	0	f	f	f	f	\N	\N	\N	\N	\N	f	f	\N	f	\N	f	2024-10-09 12:19:28.084+02	2024-10-09 12:19:28.084+02
-18	2024	MDM500875	GOPE	\N	0	f	f	f	f	\N	\N	\N	\N	\N	f	f	\N	f	\N	f	2024-10-09 12:19:28.086+02	2024-10-09 12:19:28.086+02
-19	2024	MDM542495	MB02	\N	0	f	f	f	f	\N	\N	\N	\N	\N	f	f	\N	f	\N	f	2024-10-09 12:19:28.087+02	2024-10-09 12:19:28.087+02
-20	2024	MDM542495	MB03	\N	0	f	f	f	f	\N	\N	\N	\N	\N	f	f	\N	f	\N	f	2024-10-09 12:19:28.088+02	2024-10-09 12:19:28.088+02
-22	2024	MDM537405	MB02	\N	0	f	f	f	f	\N	\N	\N	\N	\N	f	f	\N	f	\N	f	2024-10-09 12:19:28.091+02	2024-10-09 12:19:28.091+02
-23	2024	MDM537405	MB03	\N	0	f	f	f	f	\N	\N	\N	\N	\N	f	f	\N	f	\N	f	2024-10-09 12:19:28.092+02	2024-10-09 12:19:28.092+02
-25	2024	MDM544481	MB02	\N	0	f	f	f	f	\N	\N	\N	\N	\N	f	f	\N	f	\N	f	2024-10-09 12:19:28.095+02	2024-10-09 12:19:28.095+02
-26	2024	MDM544481	MB03	\N	0	f	f	f	f	\N	\N	\N	\N	\N	f	f	\N	f	\N	f	2024-10-09 12:19:28.097+02	2024-10-09 12:19:28.097+02
-28	2024	MDM506018	MB02	\N	0	f	f	f	f	\N	\N	\N	\N	\N	f	f	\N	f	\N	f	2024-10-09 12:19:28.099+02	2024-10-09 12:19:28.099+02
-29	2024	MDM506018	MB03	\N	0	f	f	f	f	\N	\N	\N	\N	\N	f	f	\N	f	\N	f	2024-10-09 12:19:28.101+02	2024-10-09 12:19:28.101+02
-30	2024	MDM506018	GOPE	\N	0	f	f	f	f	\N	\N	\N	\N	\N	f	f	\N	f	\N	f	2024-10-09 12:19:28.102+02	2024-10-09 12:19:28.102+02
-31	2024	MDM544479	MB02	\N	0	f	f	f	f	\N	\N	\N	\N	\N	f	f	\N	f	\N	f	2024-10-09 12:19:28.103+02	2024-10-09 12:19:28.103+02
-32	2024	MDM544479	MB03	\N	0	f	f	f	f	\N	\N	\N	\N	\N	f	f	\N	f	\N	f	2024-10-09 12:19:28.104+02	2024-10-09 12:19:28.104+02
-34	2024	MDM500876	MB02	\N	0	f	f	f	f	\N	\N	\N	\N	\N	f	f	\N	f	\N	f	2024-10-09 12:19:28.107+02	2024-10-09 12:19:28.107+02
-35	2024	MDM500876	MB03	\N	0	f	f	f	f	\N	\N	\N	\N	\N	f	f	\N	f	\N	f	2024-10-09 12:19:28.108+02	2024-10-09 12:19:28.108+02
-36	2024	MDM500876	GOPE	\N	0	f	f	f	f	\N	\N	\N	\N	\N	f	f	\N	f	\N	f	2024-10-09 12:19:28.11+02	2024-10-09 12:19:28.11+02
-37	2024	MDM542498	MB02	\N	0	f	f	f	f	\N	\N	\N	\N	\N	f	f	\N	f	\N	f	2024-10-09 12:19:28.111+02	2024-10-09 12:19:28.111+02
-38	2024	MDM542498	MB03	\N	0	f	f	f	f	\N	\N	\N	\N	\N	f	f	\N	f	\N	f	2024-10-09 12:19:28.112+02	2024-10-09 12:19:28.112+02
-40	2024	MDM542497	MB02	\N	0	f	f	f	f	\N	\N	\N	\N	\N	f	f	\N	f	\N	f	2024-10-09 12:19:28.115+02	2024-10-09 12:19:28.115+02
-41	2024	MDM542497	MB03	\N	0	f	f	f	f	\N	\N	\N	\N	\N	f	f	\N	f	\N	f	2024-10-09 12:19:28.116+02	2024-10-09 12:19:28.116+02
-43	2024	MDM542496	MB02	\N	0	f	f	f	f	\N	\N	\N	\N	\N	f	f	\N	f	\N	f	2024-10-09 12:19:28.119+02	2024-10-09 12:19:28.119+02
-44	2024	MDM542496	MB03	\N	0	f	f	f	f	\N	\N	\N	\N	\N	f	f	\N	f	\N	f	2024-10-09 12:19:28.121+02	2024-10-09 12:19:28.121+02
-46	2024	MDM537406	MB02	\N	0	f	f	f	f	\N	\N	\N	\N	\N	f	f	\N	f	\N	f	2024-10-09 12:19:28.124+02	2024-10-09 12:19:28.124+02
-47	2024	MDM537406	MB03	\N	0	f	f	f	f	\N	\N	\N	\N	\N	f	f	\N	f	\N	f	2024-10-09 12:19:28.125+02	2024-10-09 12:19:28.125+02
-49	2024	MDM537423	MB02	\N	0	f	f	f	f	\N	\N	\N	\N	\N	f	f	\N	f	\N	f	2024-10-09 12:19:28.128+02	2024-10-09 12:19:28.128+02
-50	2024	MDM537423	MB03	\N	0	f	f	f	f	\N	\N	\N	\N	\N	f	f	\N	f	\N	f	2024-10-09 12:19:28.129+02	2024-10-09 12:19:28.129+02
-52	2024	MDM537416	MB02	\N	0	f	f	f	f	\N	\N	\N	\N	\N	f	f	\N	f	\N	f	2024-10-09 12:19:28.132+02	2024-10-09 12:19:28.132+02
-53	2024	MDM537416	MB03	\N	0	f	f	f	f	\N	\N	\N	\N	\N	f	f	\N	f	\N	f	2024-10-09 12:19:28.133+02	2024-10-09 12:19:28.133+02
-55	2024	MDM542492	MB02	\N	0	f	f	f	f	\N	\N	\N	\N	\N	f	f	\N	f	\N	f	2024-10-09 12:19:28.135+02	2024-10-09 12:19:28.135+02
-56	2024	MDM542492	MB03	\N	0	f	f	f	f	\N	\N	\N	\N	\N	f	f	\N	f	\N	f	2024-10-09 12:19:28.137+02	2024-10-09 12:19:28.137+02
-58	2024	MDM542499	MB02	\N	0	f	f	f	f	\N	\N	\N	\N	\N	f	f	\N	f	\N	f	2024-10-09 12:19:28.139+02	2024-10-09 12:19:28.139+02
-59	2024	MDM542499	MB03	\N	0	f	f	f	f	\N	\N	\N	\N	\N	f	f	\N	f	\N	f	2024-10-09 12:19:28.14+02	2024-10-09 12:19:28.14+02
-62	2024	MDM542493	MB03	\N	0	f	f	f	f	\N	\N	\N	\N	\N	f	f	\N	f	\N	f	2024-10-09 12:19:28.144+02	2024-10-09 12:19:28.144+02
-63	2024	MDM542493	GOPE	\N	0	f	f	f	f	\N	\N	\N	\N	\N	f	f	\N	f	\N	f	2024-10-09 12:19:28.145+02	2024-10-09 12:19:28.145+02
-64	2024	MDM542490	MB02	\N	0	f	f	f	f	\N	\N	\N	\N	\N	f	f	\N	f	\N	f	2024-10-09 12:19:28.146+02	2024-10-09 12:19:28.146+02
-66	2024	MDM542490	GOPE	\N	0	f	f	f	f	\N	\N	\N	\N	\N	f	f	\N	f	\N	f	2024-10-09 12:19:28.149+02	2024-10-09 12:19:28.149+02
-67	2024	MDM544470	MB02	\N	0	f	f	f	f	\N	\N	\N	\N	\N	f	f	\N	f	\N	f	2024-10-09 12:19:28.15+02	2024-10-09 12:19:28.15+02
-69	2024	MDM544470	GOPE	\N	0	f	f	f	f	\N	\N	\N	\N	\N	f	f	\N	f	\N	f	2024-10-09 12:19:28.152+02	2024-10-09 12:19:28.152+02
-70	2024	MDM544482	MB02	\N	0	f	f	f	f	\N	\N	\N	\N	\N	f	f	\N	f	\N	f	2024-10-09 12:19:28.153+02	2024-10-09 12:19:28.153+02
-72	2024	MDM544482	GOPE	\N	0	f	f	f	f	\N	\N	\N	\N	\N	f	f	\N	f	\N	f	2024-10-09 12:19:28.155+02	2024-10-09 12:19:28.155+02
-74	2024	MDM542444	MB03	\N	0	f	f	f	f	\N	\N	\N	\N	\N	f	f	\N	f	\N	f	2024-10-09 12:19:28.158+02	2024-10-09 12:19:28.158+02
-75	2024	MDM542444	GOPE	\N	0	f	f	f	f	\N	\N	\N	\N	\N	f	f	\N	f	\N	f	2024-10-09 12:19:28.159+02	2024-10-09 12:19:28.159+02
-77	2024	MDM542455	MB03	\N	0	f	f	f	f	\N	\N	\N	\N	\N	f	f	\N	f	\N	f	2024-10-09 12:19:28.161+02	2024-10-09 12:19:28.161+02
-78	2024	MDM542455	GOPE	\N	0	f	f	f	f	\N	\N	\N	\N	\N	f	f	\N	f	\N	f	2024-10-09 12:19:28.162+02	2024-10-09 12:19:28.162+02
-80	2024	MDM542411	MB03	\N	0	f	f	f	f	\N	\N	\N	\N	\N	f	f	\N	f	\N	f	2024-10-09 12:19:28.164+02	2024-10-09 12:19:28.164+02
-81	2024	MDM542411	GOPE	\N	0	f	f	f	f	\N	\N	\N	\N	\N	f	f	\N	f	\N	f	2024-10-09 12:19:28.165+02	2024-10-09 12:19:28.165+02
-83	2024	MDM542433	MB03	\N	0	f	f	f	f	\N	\N	\N	\N	\N	f	f	\N	f	\N	f	2024-10-09 12:19:28.167+02	2024-10-09 12:19:28.167+02
-84	2024	MDM542433	GOPE	\N	0	f	f	f	f	\N	\N	\N	\N	\N	f	f	\N	f	\N	f	2024-10-09 12:19:28.168+02	2024-10-09 12:19:28.168+02
-85	2024	MDM544460	MB02	\N	0	f	f	f	f	\N	\N	\N	\N	\N	f	f	\N	f	\N	f	2024-10-09 12:19:28.169+02	2024-10-09 12:19:28.169+02
-87	2024	MDM544460	GOPE	\N	0	f	f	f	f	\N	\N	\N	\N	\N	f	f	\N	f	\N	f	2024-10-09 12:19:28.172+02	2024-10-09 12:19:28.172+02
-88	2024	MDM544413	MB02	\N	0	f	f	f	f	\N	\N	\N	\N	\N	f	f	\N	f	\N	f	2024-10-09 12:19:28.174+02	2024-10-09 12:19:28.174+02
-42	2024	MDM542497	GOPE	\N	760000	f	f	f	f	\N	\N	\N	\N	\N	t	f	\N	t	new	f	2024-10-09 12:19:28.118+02	2024-10-09 12:19:32.307+02
-21	2024	MDM542495	GOPE	\N	600000	f	f	f	f	\N	\N	\N	\N	\N	t	f	\N	t	new	f	2024-10-09 12:19:28.09+02	2024-10-09 12:19:32.309+02
-3	2024	MDM537422	GOPE	\N	350000	f	f	f	f	\N	\N	\N	\N	\N	f	f	\N	f	\N	f	2024-10-09 12:19:28.06+02	2024-10-09 12:19:32.313+02
-33	2024	MDM544479	GOPE	\N	1300000	f	f	f	f	\N	\N	\N	\N	\N	t	f	\N	t	new	f	2024-10-09 12:19:28.106+02	2024-10-09 12:19:32.302+02
-82	2024	MDM542433	MB02	\N	800000	f	f	f	f	\N	\N	\N	\N	\N	t	f	\N	t	new	f	2024-10-09 12:19:28.166+02	2024-10-09 12:19:32.287+02
-65	2024	MDM542490	MB03	\N	200000	f	f	f	f	\N	\N	\N	\N	\N	f	f	\N	f	\N	f	2024-10-09 12:19:28.148+02	2024-10-09 12:19:32.299+02
-76	2024	MDM542455	MB02	\N	600000	f	f	f	f	\N	\N	\N	\N	\N	t	f	\N	t	new	f	2024-10-09 12:19:28.16+02	2024-10-09 12:19:32.29+02
-45	2024	MDM542496	GOPE	\N	700000	f	f	f	f	\N	\N	\N	\N	\N	t	f	\N	t	new	f	2024-10-09 12:19:28.122+02	2024-10-09 12:19:32.308+02
-86	2024	MDM544460	MB03	\N	300000	f	f	f	f	\N	\N	\N	\N	\N	t	f	\N	t	new	f	2024-10-09 12:19:28.171+02	2024-10-09 12:19:32.297+02
-6	2024	MDM537415	GOPE	\N	200000	f	f	f	f	\N	\N	\N	\N	\N	f	f	\N	f	\N	f	2024-10-09 12:19:28.066+02	2024-10-09 12:19:28.225+02
-15	2024	MDM544478	GOPE	\N	1200000	f	f	f	f	\N	\N	\N	\N	\N	t	f	\N	t	new	f	2024-10-09 12:19:28.08+02	2024-10-09 12:19:32.303+02
-48	2024	MDM537406	GOPE	\N	150000	f	f	f	f	\N	\N	\N	\N	\N	f	f	\N	f	\N	f	2024-10-09 12:19:28.126+02	2024-10-09 12:19:28.227+02
-1	2024	MDM537422	MB02	\N	0	f	f	f	f	\N	\N	\N	\N	\N	f	f	\N	f	\N	f	2024-10-09 12:19:28.05+02	2024-10-09 12:19:28.277+02
-27	2024	MDM544481	GOPE	\N	2000000	f	f	f	f	\N	\N	\N	\N	\N	t	f	\N	t	new	f	2024-10-09 12:19:28.098+02	2024-10-09 12:19:32.3+02
-9	2024	MDM544480	GOPE	\N	1500000	f	f	f	f	\N	\N	\N	\N	\N	t	f	\N	t	new	f	2024-10-09 12:19:28.071+02	2024-10-09 12:19:32.301+02
-61	2024	MDM542493	MB02	\N	300000	f	f	f	f	\N	\N	\N	\N	\N	t	f	\N	t	new	f	2024-10-09 12:19:28.143+02	2024-10-09 12:19:32.292+02
-51	2024	MDM537423	GOPE	\N	500000	f	f	f	f	\N	\N	\N	\N	\N	t	f	\N	t	new	f	2024-10-09 12:19:28.13+02	2024-10-09 12:19:32.312+02
-24	2024	MDM537405	GOPE	\N	100000	f	f	f	f	\N	\N	\N	\N	\N	f	f	\N	f	\N	f	2024-10-09 12:19:28.094+02	2024-10-09 12:19:28.235+02
-73	2024	MDM542444	MB02	\N	500000	f	f	f	f	\N	\N	\N	\N	\N	t	f	\N	t	new	f	2024-10-09 12:19:28.157+02	2024-10-09 12:19:32.291+02
-4	2024	MDM537415	MB02	\N	0	f	f	f	f	\N	\N	\N	\N	\N	f	f	\N	f	\N	f	2024-10-09 12:19:28.063+02	2024-10-09 12:19:32.293+02
-54	2024	MDM537416	GOPE	\N	300000	f	f	f	f	\N	\N	\N	\N	\N	f	f	\N	f	\N	f	2024-10-09 12:19:28.134+02	2024-10-09 12:19:28.239+02
-60	2024	MDM542499	GOPE	\N	1000000	f	f	f	f	\N	\N	\N	\N	\N	t	f	\N	t	new	f	2024-10-09 12:19:28.142+02	2024-10-09 12:19:32.304+02
-79	2024	MDM542411	MB02	\N	700000	f	f	f	f	\N	\N	\N	\N	\N	t	f	\N	t	new	f	2024-10-09 12:19:28.163+02	2024-10-09 12:19:32.288+02
-68	2024	MDM544470	MB03	\N	500000	f	f	f	f	\N	\N	\N	\N	\N	t	f	\N	t	new	f	2024-10-09 12:19:28.151+02	2024-10-09 12:19:32.296+02
-71	2024	MDM544482	MB03	\N	700000	f	f	f	f	\N	\N	\N	\N	\N	t	f	\N	t	new	f	2024-10-09 12:19:28.154+02	2024-10-09 12:19:32.294+02
-90	2024	MDM544413	GOPE	\N	0	f	f	f	f	\N	\N	\N	\N	\N	f	f	\N	f	\N	f	2024-10-09 12:19:28.177+02	2024-10-09 12:19:28.177+02
-89	2024	MDM544413	MB03	\N	600000	f	f	f	f	\N	\N	\N	\N	\N	t	f	\N	t	new	f	2024-10-09 12:19:28.175+02	2024-10-09 12:19:32.295+02
-39	2024	MDM542498	GOPE	\N	900000	f	f	f	f	\N	\N	\N	\N	\N	t	f	\N	t	new	f	2024-10-09 12:19:28.114+02	2024-10-09 12:19:32.305+02
-57	2024	MDM542492	GOPE	\N	550000	f	f	f	f	\N	\N	\N	\N	\N	t	f	\N	t	new	f	2024-10-09 12:19:28.138+02	2024-10-09 12:19:32.311+02
 \.
 
 
@@ -1180,20 +932,6 @@ SELECT pg_catalog.setval('public.td_perfo_synthesis_id_seq', 53, true);
 --
 
 SELECT pg_catalog.setval('public.team_id_seq', 15, true);
-
-
---
--- Name: yearly_supplier_snapshot_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
---
-
-SELECT pg_catalog.setval('public.yearly_supplier_snapshot_id_seq', 30, true);
-
-
---
--- Name: yearly_team_cota_data_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
---
-
-SELECT pg_catalog.setval('public.yearly_team_cota_data_id_seq', 90, true);
 
 
 --
@@ -21117,22 +20855,6 @@ ALTER TABLE ONLY public.team
 
 
 --
--- Name: yearly_supplier_snapshot yearly_supplier_snapshot_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
---
-
-ALTER TABLE ONLY public.yearly_supplier_snapshot
-    ADD CONSTRAINT yearly_supplier_snapshot_pkey PRIMARY KEY (id);
-
-
---
--- Name: yearly_team_cota_data yearly_team_cota_data_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
---
-
-ALTER TABLE ONLY public.yearly_team_cota_data
-    ADD CONSTRAINT yearly_team_cota_data_pkey PRIMARY KEY (id);
-
-
---
 -- Name: answer answer_commenter_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -21210,14 +20932,6 @@ ALTER TABLE ONLY public.session
 
 ALTER TABLE ONLY public.team
     ADD CONSTRAINT team_parent_fkey FOREIGN KEY (parent) REFERENCES public.team(id);
-
-
---
--- Name: yearly_team_cota_data yearly_team_cota_data_commenter_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
---
-
-ALTER TABLE ONLY public.yearly_team_cota_data
-    ADD CONSTRAINT yearly_team_cota_data_commenter_fkey FOREIGN KEY (commenter) REFERENCES public.orga(id) ON UPDATE CASCADE ON DELETE SET NULL;
 
 
 --
