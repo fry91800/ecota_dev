@@ -594,11 +594,11 @@ logger.info('Synchronisation avec la base de données...');
 sequelize.sync({ alter: true })
   .then(() => {
     logger.info("\x1b[32mSynchonisation réussie\x1b[0m");
-    const campaignService = require("../service/campaignService");
-    const selectionService = require("../service/selectionService");
-    campaignService.syncSuppliers().then(() => {
-      selectionService.updateAllSelectionData();
-    })
+    // const campaignService = require("../service/campaignService");
+    // const selectionService = require("../service/selectionService");
+    // campaignService.syncSuppliers().then(() => {
+    //   selectionService.updateAllSelectionData();
+    // })
   })
   .catch(err => {
     console.error('Erreur lors de la synchronisation:', err);
