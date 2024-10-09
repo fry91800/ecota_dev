@@ -123,6 +123,7 @@ async function getSelectionTableData() {
         LEFT JOIN team
         ON teamdata.purchasingorganisationcode = team.code        
         WHERE teamdata.year = ${currentYear}
+        AND "teamdata"."Value(EUR)" != 0
         AND snapshot.year = ${currentYear}`,
         {
             type: db.sequelize.QueryTypes.RAW
