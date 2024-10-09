@@ -384,6 +384,9 @@ const YearlyTeamCotaData = sequelize.define('yearly_team_cota_data',
     purchasingorganisationcode: {
       type: DataTypes.STRING,
     },
+    commodity: {
+      type: DataTypes.STRING,
+    },
     "Value(EUR)": {
       type: Sequelize.INTEGER,
       defaultValue: 0
