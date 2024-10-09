@@ -26,10 +26,10 @@ table#selection-table.table2
                 .header2
                     .header2-text Division
                 .filters2
-                    .filters2-buttons
-                        .filters2-button WB
-                        .filters2-button SE
-                        .filters2-button LGI
+                    .filters2-input
+                        .search-button(id="commodity-search-button" class="search-button") <i class="fa-solid fa-magnifying-glass"></i>
+                        input(type="text" id="commodity-search" class="search" placeholder="Search")
+                        .delete-button <i class="fa-solid fa-xmark"></i>
             th#perf-header
                 .header2
                     .header2-text Perf. scope

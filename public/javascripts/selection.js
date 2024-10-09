@@ -36,7 +36,7 @@ $(document).ready(function () {
             <tr class="${entry.status ? entry.status : ''}">
             <td ${entry.hasnewname ? 'class="new-name"' : ''}>${entry.vendorname} - ${entry.city}(${entry.country})</td>
             <td>${entry.mdmcode}</td>
-            <td>${entry.commodity ? entry.commodity : entry.teamshorttext}</td>
+            <td>${entry.commodity}</td>
             <td><input id="force-perf-${entry.vendorcode}" class="popup-open" data-target-id="check-overlay" data-vendorcode="${entry.vendorcode}" data-purchasingorganisationcode="${entry.purchasingorganisationcode}" data-field="forceperfcota" type="checkbox" ${entry.perfscope ? 'checked' : ''}></td>
             <td><input id="force-risk-${entry.vendorcode}" class="popup-open" data-target-id="check-overlay" data-vendorcode="${entry.vendorcode}" data-purchasingorganisationcode="${entry.purchasingorganisationcode}" data-field="forceriskcota" type="checkbox" ${entry.riskscope ? 'checked' : ''}></td>
             <td>${entry["Value(EUR)"]}</td>
