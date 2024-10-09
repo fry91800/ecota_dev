@@ -2,8 +2,8 @@
 -- PostgreSQL database dump
 --
 
--- Dumped from database version 12.20 (Ubuntu 12.20-0ubuntu0.20.04.1)
--- Dumped by pg_dump version 12.20 (Ubuntu 12.20-0ubuntu0.20.04.1)
+-- Dumped from database version 16.4 (Ubuntu 16.4-1.pgdg22.04+1)
+-- Dumped by pg_dump version 16.4 (Ubuntu 16.4-1.pgdg22.04+1)
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
@@ -53,7 +53,7 @@ CREATE SEQUENCE public.answer_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.answer_id_seq OWNER TO postgres;
+ALTER SEQUENCE public.answer_id_seq OWNER TO postgres;
 
 --
 -- Name: answer_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
@@ -108,7 +108,7 @@ CREATE SEQUENCE public.cached_selection_data_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.cached_selection_data_id_seq OWNER TO postgres;
+ALTER SEQUENCE public.cached_selection_data_id_seq OWNER TO postgres;
 
 --
 -- Name: cached_selection_data_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
@@ -145,7 +145,7 @@ CREATE SEQUENCE public.campaign_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.campaign_id_seq OWNER TO postgres;
+ALTER SEQUENCE public.campaign_id_seq OWNER TO postgres;
 
 --
 -- Name: campaign_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
@@ -182,7 +182,7 @@ CREATE SEQUENCE public.country_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.country_id_seq OWNER TO postgres;
+ALTER SEQUENCE public.country_id_seq OWNER TO postgres;
 
 --
 -- Name: country_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
@@ -218,7 +218,7 @@ CREATE SEQUENCE public.intensity_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.intensity_id_seq OWNER TO postgres;
+ALTER SEQUENCE public.intensity_id_seq OWNER TO postgres;
 
 --
 -- Name: intensity_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
@@ -267,7 +267,7 @@ CREATE SEQUENCE public.orga_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.orga_id_seq OWNER TO postgres;
+ALTER SEQUENCE public.orga_id_seq OWNER TO postgres;
 
 --
 -- Name: orga_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
@@ -305,7 +305,7 @@ CREATE SEQUENCE public.plant_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.plant_id_seq OWNER TO postgres;
+ALTER SEQUENCE public.plant_id_seq OWNER TO postgres;
 
 --
 -- Name: plant_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
@@ -342,7 +342,7 @@ CREATE SEQUENCE public.position_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.position_id_seq OWNER TO postgres;
+ALTER SEQUENCE public.position_id_seq OWNER TO postgres;
 
 --
 -- Name: position_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
@@ -432,7 +432,7 @@ CREATE SEQUENCE public.result_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.result_id_seq OWNER TO postgres;
+ALTER SEQUENCE public.result_id_seq OWNER TO postgres;
 
 --
 -- Name: result_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
@@ -484,7 +484,7 @@ CREATE SEQUENCE public.td_perfo_synthesis_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.td_perfo_synthesis_id_seq OWNER TO postgres;
+ALTER SEQUENCE public.td_perfo_synthesis_id_seq OWNER TO postgres;
 
 --
 -- Name: td_perfo_synthesis_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
@@ -523,7 +523,7 @@ CREATE SEQUENCE public.team_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.team_id_seq OWNER TO postgres;
+ALTER SEQUENCE public.team_id_seq OWNER TO postgres;
 
 --
 -- Name: team_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
@@ -566,7 +566,7 @@ CREATE SEQUENCE public.yearly_supplier_snapshot_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.yearly_supplier_snapshot_id_seq OWNER TO postgres;
+ALTER SEQUENCE public.yearly_supplier_snapshot_id_seq OWNER TO postgres;
 
 --
 -- Name: yearly_supplier_snapshot_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
@@ -621,7 +621,7 @@ CREATE SEQUENCE public.yearly_team_cota_data_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.yearly_team_cota_data_id_seq OWNER TO postgres;
+ALTER SEQUENCE public.yearly_team_cota_data_id_seq OWNER TO postgres;
 
 --
 -- Name: yearly_team_cota_data_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
@@ -1069,39 +1069,39 @@ COPY public.yearly_team_cota_data (id, year, vendorcode, purchasingorganisationc
 85	2024	MDM544460	MB02	\N	0	f	f	f	f	\N	\N	\N	\N	\N	f	f	\N	f	\N	f	2024-10-09 12:28:25.43+02	2024-10-09 12:28:25.43+02
 87	2024	MDM544460	GOPE	\N	0	f	f	f	f	\N	\N	\N	\N	\N	f	f	\N	f	\N	f	2024-10-09 12:28:25.432+02	2024-10-09 12:28:25.432+02
 88	2024	MDM544413	MB02	\N	0	f	f	f	f	\N	\N	\N	\N	\N	f	f	\N	f	\N	f	2024-10-09 12:28:25.433+02	2024-10-09 12:28:25.433+02
-30	2024	MDM506018	GOPE	\N	780000	f	f	f	f	\N	\N	\N	\N	\N	t	f	\N	t	new	f	2024-10-09 12:28:25.36+02	2024-10-09 12:28:28.103+02
-21	2024	MDM542495	GOPE	\N	600000	f	f	f	f	\N	\N	\N	\N	\N	t	f	\N	t	new	f	2024-10-09 12:28:25.347+02	2024-10-09 12:28:28.106+02
-51	2024	MDM537423	GOPE	\N	500000	f	f	f	f	\N	\N	\N	\N	\N	t	f	\N	t	new	f	2024-10-09 12:28:25.387+02	2024-10-09 12:28:28.108+02
-33	2024	MDM544479	GOPE	\N	1300000	f	f	f	f	\N	\N	\N	\N	\N	t	f	\N	t	new	f	2024-10-09 12:28:25.364+02	2024-10-09 12:28:28.1+02
 82	2024	MDM542433	MB02	\N	800000	f	f	f	f	\N	\N	\N	\N	\N	t	f	\N	t	new	f	2024-10-09 12:28:25.427+02	2024-10-09 12:28:28.087+02
 65	2024	MDM542490	MB03	\N	200000	f	f	f	f	\N	\N	\N	\N	\N	f	f	\N	f	\N	f	2024-10-09 12:28:25.404+02	2024-10-09 12:28:28.097+02
-18	2024	MDM500875	GOPE	\N	120000	f	f	f	f	\N	\N	\N	\N	\N	f	f	\N	f	\N	f	2024-10-09 12:28:25.342+02	2024-10-09 12:28:25.473+02
 73	2024	MDM542444	MB02	\N	500000	f	f	f	f	\N	\N	\N	\N	\N	t	f	\N	t	new	f	2024-10-09 12:28:25.415+02	2024-10-09 12:28:28.09+02
-42	2024	MDM542497	GOPE	\N	760000	f	f	f	f	\N	\N	\N	\N	\N	t	f	\N	t	new	f	2024-10-09 12:28:25.374+02	2024-10-09 12:28:28.104+02
 86	2024	MDM544460	MB03	\N	300000	f	f	f	f	\N	\N	\N	\N	\N	t	f	\N	t	new	f	2024-10-09 12:28:25.431+02	2024-10-09 12:28:28.096+02
-6	2024	MDM537415	GOPE	\N	200000	f	f	f	f	\N	\N	\N	\N	\N	f	f	\N	f	\N	f	2024-10-09 12:28:25.323+02	2024-10-09 12:28:25.478+02
-15	2024	MDM544478	GOPE	\N	1200000	f	f	f	f	\N	\N	\N	\N	\N	t	f	\N	t	new	f	2024-10-09 12:28:25.338+02	2024-10-09 12:28:28.101+02
-48	2024	MDM537406	GOPE	\N	150000	f	f	f	f	\N	\N	\N	\N	\N	f	f	\N	f	\N	f	2024-10-09 12:28:25.382+02	2024-10-09 12:28:25.491+02
 1	2024	MDM537422	MB02	\N	0	f	f	f	f	\N	\N	\N	\N	\N	f	f	\N	f	\N	f	2024-10-09 12:28:25.307+02	2024-10-09 12:28:25.535+02
-27	2024	MDM544481	GOPE	\N	2000000	f	f	f	f	\N	\N	\N	\N	\N	t	f	\N	t	new	f	2024-10-09 12:28:25.356+02	2024-10-09 12:28:28.098+02
-9	2024	MDM544480	GOPE	\N	1500000	f	f	f	f	\N	\N	\N	\N	\N	t	f	\N	t	new	f	2024-10-09 12:28:25.329+02	2024-10-09 12:28:28.099+02
-45	2024	MDM542496	GOPE	\N	700000	f	f	f	f	\N	\N	\N	\N	\N	t	f	\N	t	new	f	2024-10-09 12:28:25.378+02	2024-10-09 12:28:28.105+02
-57	2024	MDM542492	GOPE	\N	550000	f	f	f	f	\N	\N	\N	\N	\N	t	f	\N	t	new	f	2024-10-09 12:28:25.394+02	2024-10-09 12:28:28.107+02
-24	2024	MDM537405	GOPE	\N	100000	f	f	f	f	\N	\N	\N	\N	\N	f	f	\N	f	\N	f	2024-10-09 12:28:25.352+02	2024-10-09 12:28:25.499+02
-12	2024	MDM506017	GOPE	\N	490000	f	f	f	f	\N	\N	\N	\N	\N	t	f	\N	t	new	f	2024-10-09 12:28:25.333+02	2024-10-09 12:28:28.109+02
 61	2024	MDM542493	MB02	\N	300000	f	f	f	f	\N	\N	\N	\N	\N	t	f	\N	t	new	f	2024-10-09 12:28:25.399+02	2024-10-09 12:28:28.091+02
 4	2024	MDM537415	MB02	\N	0	f	f	f	f	\N	\N	\N	\N	\N	f	f	\N	f	\N	f	2024-10-09 12:28:25.32+02	2024-10-09 12:28:28.092+02
-54	2024	MDM537416	GOPE	\N	300000	f	f	f	f	\N	\N	\N	\N	\N	f	f	\N	f	\N	f	2024-10-09 12:28:25.39+02	2024-10-09 12:28:25.503+02
-3	2024	MDM537422	GOPE	\N	350000	f	f	f	f	\N	\N	\N	\N	\N	f	f	\N	f	\N	f	2024-10-09 12:28:25.317+02	2024-10-09 12:28:28.111+02
-60	2024	MDM542499	GOPE	\N	1000000	f	f	f	f	\N	\N	\N	\N	\N	t	f	\N	t	new	f	2024-10-09 12:28:25.397+02	2024-10-09 12:28:28.102+02
-36	2024	MDM500876	GOPE	\N	360000	f	f	f	f	\N	\N	\N	\N	\N	t	f	\N	t	new	f	2024-10-09 12:28:25.368+02	2024-10-09 12:28:28.11+02
 79	2024	MDM542411	MB02	\N	700000	f	f	f	f	\N	\N	\N	\N	\N	t	f	\N	t	new	f	2024-10-09 12:28:25.424+02	2024-10-09 12:28:28.088+02
 68	2024	MDM544470	MB03	\N	500000	f	f	f	f	\N	\N	\N	\N	\N	t	f	\N	t	new	f	2024-10-09 12:28:25.409+02	2024-10-09 12:28:28.095+02
 71	2024	MDM544482	MB03	\N	700000	f	f	f	f	\N	\N	\N	\N	\N	t	f	\N	t	new	f	2024-10-09 12:28:25.413+02	2024-10-09 12:28:28.093+02
 90	2024	MDM544413	GOPE	\N	0	f	f	f	f	\N	\N	\N	\N	\N	f	f	\N	f	\N	f	2024-10-09 12:28:25.436+02	2024-10-09 12:28:25.436+02
 76	2024	MDM542455	MB02	\N	600000	f	f	f	f	\N	\N	\N	\N	\N	t	f	\N	t	new	f	2024-10-09 12:28:25.421+02	2024-10-09 12:28:28.089+02
+21	2024	MDM542495	GOPE	MP	600000	f	f	f	f	\N	\N	\N	\N	\N	t	f	\N	t	new	f	2024-10-09 12:28:25.347+02	2024-10-09 12:28:28.106+02
+51	2024	MDM537423	GOPE	MP	500000	f	f	f	f	\N	\N	\N	\N	\N	t	f	\N	t	new	f	2024-10-09 12:28:25.387+02	2024-10-09 12:28:28.108+02
+33	2024	MDM544479	GOPE	MP	1300000	f	f	f	f	\N	\N	\N	\N	\N	t	f	\N	t	new	f	2024-10-09 12:28:25.364+02	2024-10-09 12:28:28.1+02
+18	2024	MDM500875	GOPE	MP	120000	f	f	f	f	\N	\N	\N	\N	\N	f	f	\N	f	\N	f	2024-10-09 12:28:25.342+02	2024-10-09 12:28:25.473+02
+42	2024	MDM542497	GOPE	FRM	760000	f	f	f	f	\N	\N	\N	\N	\N	t	f	\N	t	new	f	2024-10-09 12:28:25.374+02	2024-10-09 12:28:28.104+02
+6	2024	MDM537415	GOPE	FRM	200000	f	f	f	f	\N	\N	\N	\N	\N	f	f	\N	f	\N	f	2024-10-09 12:28:25.323+02	2024-10-09 12:28:25.478+02
+15	2024	MDM544478	GOPE	FRM	1200000	f	f	f	f	\N	\N	\N	\N	\N	t	f	\N	t	new	f	2024-10-09 12:28:25.338+02	2024-10-09 12:28:28.101+02
+48	2024	MDM537406	GOPE	FRM	150000	f	f	f	f	\N	\N	\N	\N	\N	f	f	\N	f	\N	f	2024-10-09 12:28:25.382+02	2024-10-09 12:28:25.491+02
+9	2024	MDM544480	GOPE	HSPP	1500000	f	f	f	f	\N	\N	\N	\N	\N	t	f	\N	t	new	f	2024-10-09 12:28:25.329+02	2024-10-09 12:28:28.099+02
+45	2024	MDM542496	GOPE	HSPP	700000	f	f	f	f	\N	\N	\N	\N	\N	t	f	\N	t	new	f	2024-10-09 12:28:25.378+02	2024-10-09 12:28:28.105+02
+57	2024	MDM542492	GOPE	HSPP	550000	f	f	f	f	\N	\N	\N	\N	\N	t	f	\N	t	new	f	2024-10-09 12:28:25.394+02	2024-10-09 12:28:28.107+02
+24	2024	MDM537405	GOPE	HSPP	100000	f	f	f	f	\N	\N	\N	\N	\N	f	f	\N	f	\N	f	2024-10-09 12:28:25.352+02	2024-10-09 12:28:25.499+02
+12	2024	MDM506017	GOPE	HSPP	490000	f	f	f	f	\N	\N	\N	\N	\N	t	f	\N	t	new	f	2024-10-09 12:28:25.333+02	2024-10-09 12:28:28.109+02
+54	2024	MDM537416	GOPE	SP	300000	f	f	f	f	\N	\N	\N	\N	\N	f	f	\N	f	\N	f	2024-10-09 12:28:25.39+02	2024-10-09 12:28:25.503+02
+3	2024	MDM537422	GOPE	SP	350000	f	f	f	f	\N	\N	\N	\N	\N	f	f	\N	f	\N	f	2024-10-09 12:28:25.317+02	2024-10-09 12:28:28.111+02
+60	2024	MDM542499	GOPE	SP	1000000	f	f	f	f	\N	\N	\N	\N	\N	t	f	\N	t	new	f	2024-10-09 12:28:25.397+02	2024-10-09 12:28:28.102+02
+36	2024	MDM500876	GOPE	SP	360000	f	f	f	f	\N	\N	\N	\N	\N	t	f	\N	t	new	f	2024-10-09 12:28:25.368+02	2024-10-09 12:28:28.11+02
 89	2024	MDM544413	MB03	\N	600000	f	f	f	f	\N	\N	\N	\N	\N	t	f	\N	t	new	f	2024-10-09 12:28:25.434+02	2024-10-09 12:28:28.094+02
-39	2024	MDM542498	GOPE	\N	900000	f	f	f	f	\N	\N	\N	\N	\N	t	f	\N	t	new	f	2024-10-09 12:28:25.371+02	2024-10-09 12:28:28.103+02
+30	2024	MDM506018	GOPE	MP	780000	f	f	f	f	\N	\N	\N	\N	\N	t	f	\N	t	new	f	2024-10-09 12:28:25.36+02	2024-10-09 12:28:28.103+02
+27	2024	MDM544481	GOPE	FRM	2000000	f	f	f	f	\N	\N	\N	\N	\N	t	f	\N	t	new	f	2024-10-09 12:28:25.356+02	2024-10-09 12:28:28.098+02
+39	2024	MDM542498	GOPE	SP	900000	f	f	f	f	\N	\N	\N	\N	\N	t	f	\N	t	new	f	2024-10-09 12:28:25.371+02	2024-10-09 12:28:28.103+02
 \.
 
 
